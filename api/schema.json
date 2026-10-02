@@ -1,0 +1,107 @@
+[
+  {
+    "namespace": "faviconRows",
+    "functions": [
+      {
+        "name": "patchTab",
+        "type": "function",
+        "async": true,
+        "description": "Enables favicons in the panes of a mail or message tab.",
+        "parameters": [{ "name": "tabId", "type": "integer" }]
+      },
+      {
+        "name": "setSettings",
+        "type": "function",
+        "async": true,
+        "description": "Applies the add-on settings.",
+        "parameters": [
+          {
+            "name": "settings",
+            "type": "object",
+            "additionalProperties": { "type": "any" }
+          }
+        ]
+      },
+      {
+        "name": "setConversationDomains",
+        "type": "function",
+        "async": true,
+        "description": "Sets the domains assigned to conversations (Message-ID -> domains).",
+        "parameters": [
+          {
+            "name": "map",
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          }
+        ]
+      },
+      {
+        "name": "getConversationKeys",
+        "type": "function",
+        "async": true,
+        "description": "Returns the Message-IDs and References of the given messages.",
+        "parameters": [
+          { "name": "messageIds", "type": "array", "items": { "type": "integer" } }
+        ]
+      },
+      {
+        "name": "setEventDomains",
+        "type": "function",
+        "async": true,
+        "description": "Sets the domains assigned to calendar events (event UID -> domains).",
+        "parameters": [
+          {
+            "name": "map",
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          }
+        ]
+      },
+      {
+        "name": "clearFavicons",
+        "type": "function",
+        "async": true,
+        "description": "Forgets all known favicons so they are requested again.",
+        "parameters": []
+      },
+      {
+        "name": "setFavicons",
+        "type": "function",
+        "async": true,
+        "description": "Delivers favicons (domain -> data URL, or null if none exists).",
+        "parameters": [
+          {
+            "name": "favicons",
+            "type": "object",
+            "additionalProperties": { "type": "any" }
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "onAssignEventRequested",
+        "type": "function",
+        "description": "Fired when the user chooses to assign domains to calendar events.",
+        "parameters": [
+          { "name": "eventIds", "type": "array", "items": { "type": "string" } },
+          { "name": "title", "type": "string" }
+        ]
+      },
+      {
+        "name": "onDomainsNeeded",
+        "type": "function",
+        "description": "Fired when domains whose favicon is not yet known are displayed.",
+        "parameters": [
+          { "name": "domains", "type": "array", "items": { "type": "string" } }
+        ]
+      }
+    ]
+  }
+]

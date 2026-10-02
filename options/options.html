@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Conversation Favicons</title>
+  <link rel="stylesheet" href="options.css" />
+</head>
+<body>
+  <main>
+    <section>
+      <h2>Where to show</h2>
+      <label class="check">
+        <input type="checkbox" data-setting="showInList" />
+        <span>Message list <small>next to the sender, cards view</small></span>
+      </label>
+      <label class="check">
+        <input type="checkbox" data-setting="showInHeader" />
+        <span>Message header <small>next to each participant</small></span>
+      </label>
+      <label class="check">
+        <input type="checkbox" data-setting="showInCalendar" />
+        <span>Calendar <small>Events pane and calendar views, next to the event title</small></span>
+      </label>
+      <label class="check">
+        <input type="checkbox" data-setting="showInAddressBook" />
+        <span>Address book <small>contact list, next to the contact name</small></span>
+      </label>
+    </section>
+
+    <section>
+      <h2>Message list</h2>
+      <label class="row">
+        <span>Maximum icons per conversation</span>
+        <input type="number" min="1" max="10" data-setting="maxIcons" />
+      </label>
+      <label class="check">
+        <input type="checkbox" data-setting="includeRecipients" />
+        <span>Include recipients <small>To and Cc, not only senders</small></span>
+      </label>
+      <label class="check">
+        <input type="checkbox" data-setting="excludeOwnDomains" />
+        <span>Hide my own domains <small>the domains of your accounts' identities</small></span>
+      </label>
+    </section>
+
+    <section>
+      <h2>Ignored domains</h2>
+      <p class="hint">Never shown, in the list or in the header. One per line.</p>
+      <textarea data-setting="ignoredDomains" rows="4" spellcheck="false"
+                placeholder="gmail.com&#10;outlook.com"></textarea>
+    </section>
+
+    <section>
+      <h2>Custom favicons</h2>
+      <p class="hint">
+        Override the icon of a domain. Use the main domain; subdomains are grouped automatically.
+      </p>
+
+      <ul id="customList" class="custom-list"></ul>
+      <p id="customEmpty" class="hint empty">No custom favicons yet.</p>
+
+      <form id="customForm" class="custom-form">
+        <input id="customDomain" type="text" placeholder="domain.com" required
+               spellcheck="false" autocomplete="off" />
+        <select id="customType">
+          <option value="file">Image file</option>
+          <option value="url">Image URL</option>
+          <option value="alias">Same as domain</option>
+        </select>
+        <input id="customFile" type="file" accept="image/*" />
+        <input id="customUrl" type="url" placeholder="https://…/logo.png" hidden />
+        <input id="customAlias" type="text" placeholder="other-domain.com" hidden
+               spellcheck="false" autocomplete="off" />
+        <button type="submit">Add</button>
+      </form>
+      <p id="customError" class="error" hidden></p>
+    </section>
+
+    <section>
+      <h2>Tagged conversations</h2>
+      <p class="hint">
+        Right-click a conversation in the message list and choose
+        <em>Assign company domains…</em> to tag it.
+      </p>
+      <ul id="tagList" class="custom-list"></ul>
+      <p id="tagEmpty" class="hint empty">No tagged conversations yet.</p>
+    </section>
+
+    <section>
+      <h2>Tagged events</h2>
+      <p class="hint">
+        Right-click an event in the calendar or in the Events pane and choose
+        <em>Assign company domains…</em>. The domains of the organizer and
+        attendees are shown automatically.
+      </p>
+      <ul id="eventTagList" class="custom-list"></ul>
+      <p id="eventTagEmpty" class="hint empty">No tagged events yet.</p>
+    </section>
+
+    <section>
+      <h2>Privacy and cache</h2>
+      <label class="check">
+        <input type="checkbox" data-setting="remoteConsent" />
+        <span>Download favicons <small>sends domain names to Google, or DuckDuckGo as a fallback; without it, domains show as initials</small></span>
+      </label>
+      <p class="hint">
+        Favicons are kept for 30 days (7 days when none is found). Only the
+        domain name is sent.
+      </p>
+      <button id="clearCache" type="button">Clear favicon cache</button>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" hidden></div>
+
+  <script src="../settings.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>

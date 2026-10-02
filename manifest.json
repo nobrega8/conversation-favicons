@@ -1,0 +1,55 @@
+{
+  "manifest_version": 2,
+  "name": "Conversation Favicons",
+  "description": "Shows the favicons of the companies involved next to senders, conversations, calendar events and contacts. With your consent, domain names are sent to Google/DuckDuckGo to fetch favicons.",
+  "version": "1.0.0",
+  "author": "Afonso Nóbrega",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "conversation-favicons@nobrega.me",
+      "strict_min_version": "128.0",
+      "strict_max_version": "157.*"
+    }
+  },
+  "icons": {
+    "32": "icon.svg",
+    "64": "icon.svg"
+  },
+  "permissions": [
+    "storage",
+    "messagesRead",
+    "menus",
+    "https://www.google.com/*",
+    "https://*.gstatic.com/*",
+    "https://icons.duckduckgo.com/*"
+  ],
+  "optional_permissions": [
+    "*://*/*"
+  ],
+  "background": {
+    "scripts": [
+      "settings.js",
+      "background.js"
+    ]
+  },
+  "options_ui": {
+    "page": "options/options.html",
+    "open_in_tab": false
+  },
+  "experiment_apis": {
+    "faviconRows": {
+      "schema": "api/schema.json",
+      "parent": {
+        "scopes": [
+          "addon_parent"
+        ],
+        "paths": [
+          [
+            "faviconRows"
+          ]
+        ],
+        "script": "api/implementation.js"
+      }
+    }
+  }
+}

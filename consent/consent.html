@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Conversation Favicons: data use</title>
+  <link rel="stylesheet" href="../options/options.css" />
+  <link rel="stylesheet" href="consent.css" />
+</head>
+<body>
+  <main>
+    <h1>Conversation Favicons</h1>
+    <p>
+      To show pictures, this add-on needs to request them from external
+      services. Nothing is sent until you allow it.
+    </p>
+    <p><strong>What is sent, and to whom:</strong></p>
+    <ul>
+        <li><strong>Domain names</strong> of the people in your messages, calendar events and contacts (e.g. <code>company.com</code>) to <strong>Google</strong> (<code>google.com/s2/favicons</code>) and, as a fallback, <strong>DuckDuckGo</strong> (<code>icons.duckduckgo.com</code>), to download each domain's favicon.</li>
+    </ul>
+    <p>
+      Nothing else is sent: no message content, no names, no full email
+      addresses, no usage data. Results are cached locally in Thunderbird.
+    </p>
+    <p class="hint">Without permission, domains are shown as coloured initials; custom favicons you add still work. You can change this at any time in the add-on's options.</p>
+    <div class="buttons">
+      <button id="allow" type="button">Allow</button>
+      <button id="deny" type="button">Don't allow</button>
+    </div>
+  </main>
+  <script src="../settings.js"></script>
+  <script src="consent.js"></script>
+</body>
+</html>
