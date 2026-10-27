@@ -2,13 +2,13 @@
   "manifest_version": 2,
   "name": "Conversation Favicons",
   "description": "Shows the favicons of the companies involved next to senders, conversations, calendar events and contacts. With your consent, domain names are sent to Google/DuckDuckGo to fetch favicons.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Afonso Nóbrega",
   "browser_specific_settings": {
     "gecko": {
       "id": "conversation-favicons@nobrega.me",
       "strict_min_version": "128.0",
-      "strict_max_version": "157.*"
+      "strict_max_version": "158.*"
     }
   },
   "icons": {

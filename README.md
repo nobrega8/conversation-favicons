@@ -28,7 +28,7 @@ Nothing is sent anywhere until you allow it on the consent page shown after inst
 1. Download the latest `.xpi` from [Releases](../../releases/latest).
 2. Thunderbird → Tools → Add-ons and Themes → ⚙ → *Install Add-on From File…*
 
-Compatible with Thunderbird 128 – 157. It uses Experiment APIs (no built-in API can change the message list, header, calendar or address book), so it is distributed here and not on addons.thunderbird.net, and it may need an update when Thunderbird changes those parts of its interface.
+Compatible with Thunderbird 128 – 158. It uses Experiment APIs (no built-in API can change the message list, header, calendar or address book), so it is distributed here and not on addons.thunderbird.net, and it may need an update when Thunderbird changes those parts of its interface.
 
 Thunderbird only installs unsigned add-ons permanently if `xpinstall.signatures.required` can be set to `false` (ESR/Beta/Daily). Otherwise use *Debug Add-ons → Load Temporary Add-on*.
 
